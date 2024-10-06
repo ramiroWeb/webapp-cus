@@ -22,7 +22,7 @@
                 <td th:text="${todo.completed ? 'Sí' : 'No'}"></td>
                 <td>
                     <a th:href="@{/todos/editar/{id}(id=${todo.id})}">Editar</a>
-                    <a th:href="@{/todos/delete/{id}(id=${todo.id})}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                    <a th:href="@{/todos/eliminar/{id}(id=${todo.id})}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
                 </td>
             </tr>
         </tbody>

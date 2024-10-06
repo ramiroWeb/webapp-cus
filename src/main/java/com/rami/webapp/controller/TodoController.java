@@ -57,6 +57,11 @@ public class TodoController {
         todoService.actualizarTodo(id, todo);    
         return "redirect:/todos";
     }
+    @GetMapping("/eliminar/{id}")
+    public String eliminarTodo(@PathVariable("id") Long id) {
+        todoService.eliminarTodo(id);
+        return "redirect:/todos";
+    }
     
     
 }

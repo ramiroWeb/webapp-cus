@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Tarea</title>
+</head>
+<body>
+    <h1 th:text="${todo.id != null ? 'Editar Tarea' : 'Nueva Tarea'}"></h1>
+    <a href="/todos">Volver</a>
+    <form th:action="${todo.id != null} ? @{/todos/actualizar/{id}(id=${todo.id})} : @{/todos}" 
+        th:object="${todo}" 
+        method="post">
+        <input type="hidden" th:if="${todo.id != null}" name="_method" value="put" />
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" th:field="*{title}" />
+        <br/>
+        <label for="completed">Completada:</label>
+        <input type="checkbox" id="completed" name="completed" th:field="*{completed}" />
+        <br/>
+        <button type="submit" th:text="${todo.id != null ? 'Actualizar' : 'Crear'}"></button>
+    </form>
+</body>
+</html>

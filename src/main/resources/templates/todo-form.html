@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1 th:text="${todo.id != null ? 'Editar Tarea' : 'Nueva Tarea'}"></h1>
-    <a href="/todos">Volver</a>
+    <a href="/">Volver</a>
     <form th:action="${todo.id != null} ? @{/todos/actualizar/{id}(id=${todo.id})} : @{/todos}" 
         th:object="${todo}" 
         method="post">
